@@ -74,7 +74,9 @@ else
 # Use gcc syntax for map file
 LDFLAGS_ARCH = -Wl,-Map=$@.map,--cref -Wl,--gc-sections
 endif
-LDFLAGS = $(LDFLAGS_MOD) $(LDFLAGS_ARCH) -lm $(LDFLAGS_EXTRA) -lSDL2  
+# lazar@onion.io: removing SDL
+#LDFLAGS = $(LDFLAGS_MOD) $(LDFLAGS_ARCH) -lm $(LDFLAGS_EXTRA) -lSDL2  
+LDFLAGS = $(LDFLAGS_MOD) $(LDFLAGS_ARCH) -lm $(LDFLAGS_EXTRA)
 
 # Flags to link with pthread library
 LIBPTHREAD = -lpthread
@@ -154,11 +156,18 @@ SRC_C = \
 	fatfs_port.c \
 	$(SRC_MOD)
 
+# lazar@onion.io: removing SDL, adding xpt7603
+# LIB_SRC_C = $(addprefix lib/,\
+#     lv_bindings/driver/SDL/SDL_monitor.c \
+#     lv_bindings/driver/SDL/SDL_mouse.c \
+# 	lv_bindings/driver/SDL/modSDL.c \
+# 	lv_bindings/driver/linux/modfb.c \
+# 	$(LIB_SRC_C_EXTRA) \
+# 	timeutils/timeutils.c \
+# 	)
 LIB_SRC_C = $(addprefix lib/,\
-    lv_bindings/driver/SDL/SDL_monitor.c \
-    lv_bindings/driver/SDL/SDL_mouse.c \
-	lv_bindings/driver/SDL/modSDL.c \
 	lv_bindings/driver/linux/modfb.c \
+	lv_bindings/driver/linux/modxpt7603.c \
 	$(LIB_SRC_C_EXTRA) \
 	timeutils/timeutils.c \
 	)
