@@ -1,0 +1,7 @@
+
+# change the config file to include micropython
+cp openwrt/.config.O2-minimum ~/source/.config.O2-minimum
+cd ~/source && python scripts/onion-setup-build.py -c .config.O2-minimum
+
+# compile the micropython binary with the build system and local source:
+make package/micropython/clean ; make package/micropython/prepare USE_SOURCE_DIR=/home/ubuntu/lv_micropython ; make package/micropython/compile V=99
