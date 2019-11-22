@@ -30,24 +30,35 @@ indev_drv.type = lv.INDEV_TYPE.POINTER;
 indev_drv.read_cb = touch.read;
 lv.indev_drv_register(indev_drv);
 
+# Load the screen
+scr = lv.obj()
+lv.scr_load(scr)
+
+# create objects
 def on_button(obj, event):
 	print('on_button event')
 	if event == lv.EVENT.CLICKED:
 		print('button clicked!')
 
-scr = lv.obj()
-btn = lv.btn(scr)
+
+btn = lv.btn(lv.scr_act())
 #btn.align(lv.scr_act(), lv.ALIGN.CENTER, 0, 0)
 btn.set_pos(50,50)
 label = lv.label(btn)
 label.set_text("Button")
 btn.set_event_cb(on_button)
 
-# Load the screen
+bar1 = lv.bar(lv.scr_act())
+bar1.set_size(200, 30);
+bar1.align(None, lv.ALIGN.CENTER, 0, 0);
+bar1.set_anim_time(1000);
+bar1.set_value(100, lv.ANIM.ON);
 
-lv.scr_load(scr)
+
+
 
 print('starting loop')
 while True:
+	# lv.task_handler()
     pass
     
