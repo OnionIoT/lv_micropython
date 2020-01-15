@@ -2,6 +2,8 @@
 # Imports fb (frame buffer) module and uses it as lvgl display driver
 # then show a button on screen.
 
+DEBUG = False
+
 import lvgl as lv
 lv.init()
 import fb
@@ -55,10 +57,11 @@ bar1.set_anim_time(1000);
 bar1.set_value(100, lv.ANIM.ON);
 
 
-
-
 print('starting loop')
 while True:
-	# lv.task_handler()
-    pass
+	if DEBUG:
+		p = lv.point_t()
+		lv.indev_get_point(lv.indev_get_next(lv.indev_t.cast(None)), p)
+		print("x=%d, y=%d" % (p.x, p.y))
+	pass
     
