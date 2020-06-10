@@ -1,12 +1,27 @@
 # Micropython + lvgl
 
-Onion fork of LittlevGL's Micropython lvgl bindings.
+Onion fork of LittleVGL's Micropython lvgl bindings. Also relies on [Onion's fork of LittleVGL's lv_binding_micropython repo](https://github.com/OnionIoT/lv_binding_micropython)
 
 **For information abound Micropython lvgl bindings please refrer to [lv_bindings/README.md](https://github.com/littlevgl/lv_bindings/blob/master/README.md)**
 
 See also [Micropython + LittlevGL](https://blog.littlevgl.com/2019-02-20/micropython-bindings) blog post.
 
-## Build Instructions
+## Build Instructions for OpenWRT
+
+See the instructions in [`openwrt/README.md`](./openwrt/README.md) for instructions on building this Micropython + LVGL as an OpenWRT package.
+
+## Example Code
+
+See the examples in [`examples/onion`](./examples/onion) for some simple examples. 
+
+And refer to the [LVGL Micropython documentation](https://docs.lvgl.io/en/html/get-started/micropython.html) for programming details.
+
+
+---
+
+> Everything from here on out is from the original LittleVGL repo. It does not apply to OpenWRT or the Omega2 platform.
+
+## Build Instructions (Original LittleVGL Instructions)
 
 1. `sudo apt-get install build-essential libreadline-dev libffi-dev git pkg-config libsdl2-2.0-0 libsdl2-dev python`
 2. `git clone --recurse-submodules https://github.com/littlevgl/lv_micropython.git`
