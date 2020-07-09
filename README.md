@@ -14,8 +14,8 @@ See also [Micropython + LittlevGL](https://blog.littlevgl.com/2019-02-20/micropy
 
 * lvgl's micropython implementation was adjusted to work with the linux framebuffer and xpt7603 touch driver chip on the Omega2 Dash
 * micropython with lvgl can be compiled for the Omega2 platform
-* It runs and lvgl can be used to create UI components
-* Touch input **does not work**
+* It runs and lvgl can be used to create UI components 
+* Touch input works and can be used to interact with the UI
 
 For more details see:
 
